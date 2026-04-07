@@ -1,0 +1,893 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>Dapoer Niswah · Jamu Tradisional</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      /* ===========================
+   BRAND COLORS — SOLID ONLY
+   =========================== */
+      :root {
+        --coklat: #2e1503;
+        --coklat-mid: #6b3a1f;
+        --coklat-muda: #a0622a;
+        --coklat-warm: #7a4120;
+        --kuning: #f5c518;
+        --kuning-deep: #d4a017;
+        --kuning-pale: #fdf3c0;
+        --orange: #e8621a;
+        --orange-mid: #c95210;
+        --krem: #faf3e4;
+        --krem-dark: #eddfc4;
+        --putih: #fffdf5;
+      }
+
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        background: var(--coklat);
+        color: var(--putih);
+        overflow-x: hidden;
+        min-height: 100vh;
+      }
+
+      ::-webkit-scrollbar {
+        width: 5px;
+      }
+      ::-webkit-scrollbar-track {
+        background: var(--coklat);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--coklat-mid);
+        border-radius: 10px;
+      }
+
+      /* ===========================
+   TOPBAR
+   =========================== */
+      .topbar {
+        background: var(--kuning);
+        padding: 0 2.1rem;
+        height: 48px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 3px solid var(--kuning-deep);
+        position: sticky;
+        top: 0;
+        z-index: 200;
+      }
+      .topbar-brand {
+        font-family: "Playfair Display", serif;
+        font-size: 1.15rem;
+        font-weight: 900;
+        color: var(--coklat);
+        letter-spacing: -0.3px;
+      }
+      .topbar-info {
+        display: flex;
+        gap: 1.8rem;
+        font-size: 0.62rem;
+        font-family: "DM Mono", monospace;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: var(--coklat-mid);
+      }
+      @media (max-width: 580px) {
+        .topbar-info {
+          display: none;
+        }
+      }
+
+      /* ===========================
+   HERO — COKLAT SOLID
+   =========================== */
+      .hero {
+        background: var(--coklat);
+        border-bottom: 4px solid var(--kuning);
+        padding: 3.5rem 2rem 3rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-inner {
+        max-width: 1400px;
+        margin: 0 auto;
+        position: relative;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 2rem;
+        flex-wrap: wrap;
+      }
+
+      .hero-kicker {
+        font-family: "DM Mono", monospace;
+        font-size: 0.62rem;
+        text-transform: uppercase;
+        letter-spacing: 0.22em;
+        color: var(--kuning-deep);
+        margin-bottom: 0.9rem;
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+      }
+      .hero-kicker::before {
+        content: "";
+        width: 32px;
+        height: 2px;
+        background: var(--kuning);
+        display: inline-block;
+        flex-shrink: 0;
+      }
+
+      .hero-title {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(2.6rem, 5.5vw, 4.8rem);
+        font-weight: 900;
+        color: var(--putih);
+        line-height: 0.95;
+        letter-spacing: -2px;
+        margin-bottom: 1rem;
+      }
+      .hero-title .accent {
+        color: var(--kuning);
+        font-style: italic;
+      }
+
+      .hero-desc {
+        font-size: 0.88rem;
+        color: var(--krem-dark);
+        max-width: 320px;
+        line-height: 1.65;
+      }
+
+      .hero-stats {
+        display: flex;
+        gap: 0;
+        border: 2px solid var(--coklat-mid);
+        overflow: hidden;
+        align-self: flex-end;
+        flex-shrink: 0;
+      }
+      .hero-stat {
+        padding: 0.9rem 1.4rem;
+        border-right: 2px solid var(--coklat-mid);
+        text-align: center;
+      }
+      .hero-stat:last-child {
+        border-right: none;
+      }
+      .stat-num {
+        font-family: "Playfair Display", serif;
+        font-size: 2rem;
+        font-weight: 900;
+        color: var(--kuning);
+        display: block;
+        line-height: 1;
+      }
+      .stat-label {
+        font-family: "DM Mono", monospace;
+        font-size: 0.58rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--coklat-muda);
+        display: block;
+        margin-top: 0.3rem;
+      }
+
+      /* ===========================
+   CONTENT AREA — KREM SOLID
+   =========================== */
+      .main {
+        background: var(--krem);
+        min-height: 60vh;
+      }
+      .wrap {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 2.5rem 2rem 5rem;
+      }
+
+      /* ===========================
+   FILTER BAR
+   =========================== */
+      .filter-row {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        margin-bottom: 3rem;
+        flex-wrap: wrap;
+        border-bottom: 2px solid var(--krem-dark);
+        padding-bottom: 1.5rem;
+      }
+      .filter-label {
+        font-family: "DM Mono", monospace;
+        font-size: 0.62rem;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        color: var(--coklat-muda);
+        flex-shrink: 0;
+        margin-right: 0.2rem;
+      }
+      .fbtn {
+        font-family: "DM Mono", monospace;
+        font-size: 0.68rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        padding: 0.5rem 1.3rem;
+        border: 2px solid var(--krem-dark);
+        background: var(--putih);
+        color: var(--coklat-mid);
+        cursor: pointer;
+        border-radius: 60px;
+        transition: all 0.15s;
+        display: flex;
+        align-items: center;
+        gap: 7px;
+      }
+      .fbtn i {
+        font-size: 0.75rem;
+        color: var(--orange);
+      }
+      .fbtn:hover {
+        background: var(--kuning-pale);
+        border-color: var(--kuning);
+        color: var(--coklat);
+      }
+      .fbtn.active {
+        background: var(--kuning);
+        border-color: var(--kuning-deep);
+        color: var(--coklat);
+      }
+      .fbtn.active i {
+        color: var(--coklat);
+      }
+
+      /* ===========================
+   GROUP SECTION
+   =========================== */
+      .group-sec {
+        margin-bottom: 4rem;
+        animation: up 0.3s ease;
+      }
+      @keyframes up {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .group-head {
+        display: flex;
+        align-items: stretch;
+        margin-bottom: 1.8rem;
+        overflow: hidden;
+        border: 2px solid var(--coklat);
+      }
+      .group-tag {
+        background: var(--coklat);
+        color: var(--kuning);
+        font-family: "Playfair Display", serif;
+        font-size: 1.7rem;
+        font-weight: 900;
+        padding: 0.7rem 1.4rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 100px;
+        line-height: 1;
+        flex-shrink: 0;
+      }
+      .group-info {
+        background: var(--putih);
+        padding: 0.7rem 1.2rem;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 0.25rem;
+      }
+      .group-name {
+        font-family: "Playfair Display", serif;
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--coklat);
+      }
+      .group-sub {
+        font-family: "DM Mono", monospace;
+        font-size: 0.6rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--coklat-muda);
+      }
+      .group-badge {
+        background: var(--kuning);
+        color: var(--coklat);
+        font-family: "DM Mono", monospace;
+        font-size: 0.62rem;
+        padding: 0 1rem;
+        display: flex;
+        align-items: center;
+        font-weight: 500;
+        border-left: 2px solid var(--kuning-deep);
+        flex-shrink: 0;
+      }
+
+      /* ===========================
+   GRID
+   =========================== */
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(276px, 1fr));
+        gap: 1.5rem;
+      }
+
+      /* ===========================
+   CARD
+   =========================== */
+      .card {
+        background: var(--putih);
+        border: 2px solid var(--krem-dark);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        transition:
+          transform 0.2s ease,
+          border-color 0.2s ease,
+          box-shadow 0.2s ease;
+        align-items: center;
+      }
+      .card:hover {
+        transform: translateY(-5px);
+        border-color: var(--kuning-deep);
+        box-shadow: 0 14px 30px rgba(46, 21, 3, 0.13);
+      }
+
+      /* photo */
+      .card-photo {
+        width: 70%;
+        margin-top: 10px;
+        aspect-ratio: 4/3;
+        position: relative;
+        overflow: hidden;
+        background: var(--krem-dark);
+        flex-shrink: 0;
+      }
+      .card-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.35s ease;
+      }
+      .card:hover .card-photo img {
+        transform: scale(1.05);
+      }
+
+      /* size tag di foto */
+      .size-tag {
+        position: absolute;
+        bottom: 0.2rem;
+        left: 0.7rem;
+        background: var(--coklat);
+        color: var(--kuning);
+        font-family: "DM Mono", monospace;
+        font-size: 0.8rem;
+        font-weight: 500;
+        padding: 0.22rem 0.7rem;
+        letter-spacing: 0.08em;
+        z-index: 2;
+      }
+
+      /* card body */
+      .card-body {
+        padding: 1.1rem 1.2rem 1.4rem;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        background: var(--putih);
+      }
+
+      .card-id {
+        font-family: "DM Mono", monospace;
+        font-size: 0.58rem;
+        color: var(--coklat-muda);
+        letter-spacing: 0.1em;
+      }
+      .card-name {
+        font-family: "Playfair Display", serif;
+        font-size: 1.12rem;
+        font-weight: 700;
+        color: var(--coklat);
+        line-height: 1.25;
+        padding-left: 0.7rem;
+        border-left: 3px solid var(--kuning);
+      }
+
+      /* harga row — solid coklat, teks kontras */
+      .price-block {
+        background: var(--coklat);
+        padding: 0.6rem 0.9rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .price-val {
+        font-family: "Playfair Display", serif;
+        font-size: 1.45rem;
+        font-weight: 900;
+        color: var(--kuning);
+        line-height: 1;
+      }
+      .price-prefix {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        font-size: 0.72rem;
+        font-weight: 500;
+        color: var(--coklat-muda);
+        margin-right: 2px;
+      }
+      .price-unit {
+        font-family: "DM Mono", monospace;
+        font-size: 0.6rem;
+        color: var(--coklat-muda);
+      }
+
+      /* manfaat block — solid krem, border kuning */
+      .manfaat {
+        background: var(--krem);
+        border-left: 3px solid var(--orange);
+        padding: 0.65rem 0.85rem;
+        flex: 1;
+      }
+      .manfaat-label {
+        font-family: "DM Mono", monospace;
+        font-size: 0.58rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: var(--orange-mid);
+        font-weight: 500;
+        display: block;
+        margin-bottom: 0.3rem;
+      }
+      .manfaat-text {
+        font-size: 0.8rem;
+        line-height: 1.6;
+        color: var(--coklat);
+      }
+
+      /* ===========================
+   FOOTER — COKLAT SOLID DENGAN SOSMED
+   =========================== */
+      .footer {
+        background: var(--coklat);
+        border-top: 4px solid var(--kuning);
+        padding: 1.8rem 2rem;
+      }
+      .footer-inner {
+        max-width: 1400px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+      }
+      .footer-brand {
+        font-family: "Playfair Display", serif;
+        font-size: 1.05rem;
+        font-weight: 900;
+        color: var(--kuning);
+      }
+      .footer-brand span {
+        color: var(--coklat-muda);
+        font-style: italic;
+      }
+      .footer-pills {
+        display: flex;
+        gap: 0.6rem;
+        flex-wrap: wrap;
+      }
+      .footer-pill {
+        font-family: "DM Mono", monospace;
+        font-size: 0.6rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--krem-dark);
+        border: 1px solid var(--coklat-mid);
+        padding: 0.22rem 0.8rem;
+      }
+      /* sosmed links */
+      .sosmed-links {
+        display: flex;
+        gap: 1.2rem;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      .sosmed-item {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(255, 253, 245, 0.05);
+        padding: 0.45rem 1rem;
+        border-radius: 60px;
+        color: var(--krem-dark);
+        text-decoration: none;
+        font-family: "DM Mono", monospace;
+        font-size: 0.68rem;
+        font-weight: 500;
+        letter-spacing: 0.05em;
+        transition: all 0.2s ease;
+        border: 1px solid var(--coklat-mid);
+      }
+      .sosmed-item i {
+        font-size: 0.85rem;
+        color: var(--kuning);
+      }
+      .sosmed-item:hover {
+        background: var(--kuning);
+        color: var(--coklat);
+        border-color: var(--kuning-deep);
+        transform: translateY(-2px);
+      }
+      .sosmed-item:hover i {
+        color: var(--coklat);
+      }
+      @media (max-width: 860px) {
+        .footer-inner {
+          flex-direction: column;
+          text-align: center;
+          justify-content: center;
+        }
+        .sosmed-links {
+          justify-content: center;
+        }
+      }
+
+      .empty {
+        background: var(--putih);
+        border: 2px dashed var(--krem-dark);
+        padding: 4rem;
+        text-align: center;
+        font-family: "Playfair Display", serif;
+        color: var(--coklat-muda);
+      }
+
+      @media (max-width: 700px) {
+        .hero {
+          padding: 2rem 1.2rem;
+        }
+        .hero-stats {
+          flex-wrap: wrap;
+        }
+        .wrap {
+          padding: 1.5rem 1rem 3rem;
+        }
+        .hero-title {
+          letter-spacing: -1px;
+        }
+      }
+      @media (max-width: 460px) {
+        .grid {
+          gap: 1rem;
+        }
+        .card-name {
+          font-size: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="topbar">
+      <div class="topbar-brand">Dapoer Niswah</div>
+      <div class="topbar-info">
+        <span>100% Herbal</span>
+        <span>Tanpa Pengawet</span>
+        <span>Racikan Tradisional</span>
+      </div>
+    </div>
+
+    <div class="hero">
+      <div class="hero-inner">
+        <div>
+          <div class="hero-kicker">Koleksi Jamu Tradisional</div>
+          <h1 class="hero-title">
+            Dapoer<br /><span class="accent">Niswah</span>
+          </h1>
+          <p class="hero-desc">
+            Ramuan leluhur pilihan, diracik dari bahan herbal segar tanpa
+            pengawet. Tersedia dalam tiga ukuran kemasan.
+          </p>
+        </div>
+        <div class="hero-stats" id="heroStats">
+          <div class="hero-stat">
+            <span class="stat-num" id="statProduk">—</span>
+            <span class="stat-label">Jenis Jamu</span>
+          </div>
+          <div class="hero-stat">
+            <span class="stat-num">3</span>
+            <span class="stat-label">Ukuran</span>
+          </div>
+          <div class="hero-stat">
+            <span class="stat-num">100%</span>
+            <span class="stat-label">Alami</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="main">
+      <div class="wrap">
+        <div class="filter-row" id="filterBar">
+          <span class="filter-label">Ukuran —</span>
+          <button class="fbtn active" data-size="all">
+            <i class="fas fa-th-large"></i> Semua
+          </button>
+          <button class="fbtn" data-size="60ml">
+            <i class="fas fa-flask"></i> 60 ml
+          </button>
+          <button class="fbtn" data-size="250ml">
+            <i class="fas fa-jug-detergent"></i> 250 ml
+          </button>
+          <button class="fbtn" data-size="500ml">
+            <i class="fas fa-wine-bottle"></i> 500 ml
+          </button>
+        </div>
+        <div id="container"></div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-inner">
+        <div class="footer-brand">Dapoer <span>Niswah</span></div>
+        <div class="sosmed-links">
+          <a
+            href="https://wa.me/6285312345678"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="sosmed-item"
+          >
+            <i class="fab fa-whatsapp"></i> +62 853-1234-5678
+          </a>
+          <a
+            href="https://instagram.com/dapoer_niswah"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="sosmed-item"
+          >
+            <i class="fab fa-instagram"></i> @dapoer_niswah
+          </a>
+          <a
+            href="https://facebook.com/niswah.lestari"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="sosmed-item"
+          >
+            <i class="fab fa-facebook"></i> niswah.lestari
+          </a>
+        </div>
+        <div class="footer-pills">
+          <span class="footer-pill">Herbal Asli</span>
+          <span class="footer-pill">Tanpa Pengawet</span>
+          <span class="footer-pill">Racikan Leluhur</span>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // ========= DATABASE PRODUK DENGAN FOTO PRODUK (UNSPLASH HERBAL THEME) =========
+      const PRODUK = [
+        {
+          id: 1,
+          title: "Induk Kunyit Jahe Merah",
+          deskripsi: "Meningkatkan daya tahan tubuh, stamina dan kinerja otak.",
+          foto: "https://images.unsplash.com/photo-1615485500704-8e990f9900f4?w=600&h=450&fit=crop",
+          harga: { "60ml": 8000, "250ml": 45000, "500ml": 70000 },
+        },
+        {
+          id: 2,
+          title: "Jamu Beras Kencur",
+          deskripsi:
+            "Meningkatkan nafsu makan, mengatasi pegal linu, menyegarkan tubuh, dan mengusir masuk angin.",
+          foto: "https://images.unsplash.com/photo-1595434091143-b375ced5fe5c?w=600&h=450&fit=crop",
+          harga: { "60ml": 8000, "250ml": 45000, "500ml": 70000 },
+        },
+        {
+          id: 3,
+          title: "Jamu Kunyit Asem",
+          deskripsi:
+            "Melancarkan haid, kaya antioksidan, meredakan nyeri sendi & menjaga vitalitas wanita.",
+          foto: "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=600&h=450&fit=crop",
+          harga: { "60ml": 8000, "250ml": 45000, "500ml": 70000 },
+        },
+        {
+          id: 4,
+          title: "Jamu Temulawak",
+          deskripsi:
+            "Menjaga fungsi hati, melancarkan pencernaan, meningkatkan imunitas & antiradang alami.",
+          foto: "https://images.unsplash.com/photo-1595434091143-b375ced5fe5c?w=600&h=450&fit=crop",
+          harga: { "60ml": 8000, "250ml": 45000, "500ml": 70000 },
+        },
+        {
+          id: 5,
+          title: "Jamu Daun Sambiloto",
+          deskripsi:
+            "Menurunkan demam, meredakan infeksi ringan, membersihkan darah & meningkatkan imun.",
+          foto: "https://images.unsplash.com/photo-1584308666744-86037f6fc26a?w=600&h=450&fit=crop",
+          harga: { "60ml": 8000, "250ml": 45000, "500ml": 70000 },
+        },
+        {
+          id: 6,
+          title: "Jamu Jahe Merah",
+          deskripsi:
+            "Menghangatkan tubuh, meredakan batuk & flu, meningkatkan stamina dan metabolisme.",
+          foto: "https://images.unsplash.com/photo-1595434091143-b375ced5fe5c?w=600&h=450&fit=crop",
+          harga: { "60ml": 8000, "250ml": 45000, "500ml": 70000 },
+        },
+        {
+          id: 7,
+          title: "Jamu Cabe Puyang",
+          deskripsi:
+            "Menghangatkan tubuh, redakan masuk angin & pegal linu, melancarkan peredaran darah.",
+          foto: "https://images.unsplash.com/photo-1615485500704-8e990f9900f4?w=600&h=450&fit=crop",
+          harga: { "60ml": 8000, "250ml": 45000, "500ml": 70000 },
+        },
+        {
+          id: 8,
+          title: "Jamu Pahitan",
+          deskripsi:
+            "Mengatasi gatal-gatal, rematik, kencing manis, serta membersihkan darah dari racun.",
+          foto: "https://images.unsplash.com/photo-1584308666744-86037f6fc26a?w=600&h=450&fit=crop",
+          harga: { "60ml": 8000, "250ml": 45000, "500ml": 70000 },
+        },
+      ];
+
+      const SIZES = ["60ml", "250ml", "500ml"];
+      const SIZE_NAMES = {
+        "60ml": "Kemasan Mini · 60 ml",
+        "250ml": "Kemasan Sedang · 250 ml",
+        "500ml": "Kemasan Besar · 500 ml",
+      };
+
+      function fmt(n) {
+        return new Intl.NumberFormat("id-ID").format(n);
+      }
+
+      function makeCard(produk, size) {
+        const card = document.createElement("div");
+        card.className = "card";
+
+        const photoDiv = document.createElement("div");
+        photoDiv.className = "card-photo";
+
+        const img = document.createElement("img");
+        img.src = produk.foto;
+        img.alt = produk.title;
+        img.loading = "lazy";
+        img.onerror = () => {
+          img.src =
+            "https://placehold.co/600x400/fdf3c0/a0622a?text=" +
+            encodeURIComponent(produk.title.substring(0, 20));
+        };
+        photoDiv.appendChild(img);
+
+        const stag = document.createElement("div");
+        stag.className = "size-tag";
+        stag.textContent = size;
+        photoDiv.appendChild(stag);
+        card.appendChild(photoDiv);
+
+        const body = document.createElement("div");
+        body.className = "card-body";
+        body.innerHTML = `
+        <div class="card-id">#${String(produk.id).padStart(2, "0")}</div>
+        <div class="card-name">${escapeHtml(produk.title)}</div>
+        <div class="price-block">
+          <div class="price-val"><span class="price-prefix">Rp</span>${fmt(produk.harga[size])}</div>
+          <span class="price-unit">/ botol</span>
+        </div>
+        <div class="manfaat">
+          <span class="manfaat-label"><i class="fas fa-leaf" style="margin-right:4px"></i>Manfaat</span>
+          <span class="manfaat-text">${escapeHtml(produk.deskripsi)}</span>
+        </div>
+      `;
+        card.appendChild(body);
+        return card;
+      }
+
+      function escapeHtml(str) {
+        if (!str) return "";
+        return str.replace(/[&<>]/g, function (m) {
+          if (m === "&") return "&amp;";
+          if (m === "<") return "&lt;";
+          if (m === ">") return "&gt;";
+          return m;
+        });
+      }
+
+      function makeGroup(size, items) {
+        const sec = document.createElement("div");
+        sec.className = "group-sec";
+
+        const head = document.createElement("div");
+        head.className = "group-head";
+        head.innerHTML = `
+        <div class="group-tag">${size}</div>
+        <div class="group-info">
+          <div class="group-name">${SIZE_NAMES[size]}</div>
+          <div class="group-sub">Pilih ukuran sesuai kebutuhan Anda</div>
+        </div>
+        <div class="group-badge">${items.length} Varian</div>
+      `;
+        sec.appendChild(head);
+
+        const grid = document.createElement("div");
+        grid.className = "grid";
+        items.forEach((p) => grid.appendChild(makeCard(p, size)));
+        sec.appendChild(grid);
+        return sec;
+      }
+
+      function render(filter) {
+        const c = document.getElementById("container");
+        c.innerHTML = "";
+        const sizes = filter === "all" ? SIZES : [filter];
+        let has = false;
+        sizes.forEach((size) => {
+          const items = PRODUK.filter(
+            (p) => p.harga && p.harga[size] !== undefined,
+          );
+          if (items.length) {
+            c.appendChild(makeGroup(size, items));
+            has = true;
+          }
+        });
+        if (!has)
+          c.innerHTML =
+            '<div class="empty">Tidak ada produk untuk ukuran ini.</div>';
+      }
+
+      document.getElementById("filterBar").addEventListener("click", (e) => {
+        const btn = e.target.closest(".fbtn");
+        if (!btn) return;
+        document
+          .querySelectorAll(".fbtn")
+          .forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+        render(btn.dataset.size);
+      });
+
+      document.getElementById("statProduk").textContent = PRODUK.length;
+      render("all");
+    </script>
+  </body>
+</html>
